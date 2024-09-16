@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      const Room_Id = "<%= roomId%>";
+    </script>
+    <script
+      defer
+      src="https://unpkg.com/peerjs@1.5.1/dist/peerjs.min.js"
+    ></script>
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="script.js" defer></script>
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100vh; /* Set the body to occupy the entire viewport height */
+      }
+
+      #container {
+        display: flex;
+        flex: 1; /* Make the container expand to fill available vertical space */
+        position: relative; /* Positioning for the chat input section */
+      }
+
+      #video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 300px);
+        grid-auto-rows: 250px;
+        overflow: auto;
+        height: 590px;
+        gap: 10px;
+        padding: 10px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      }
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      #chat {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        max-height: 95.4%; /* Set a maximum height for the chat section */
+        flex: 1; /* Allow the chat section to expand and fill remaining vertical space */
+      }
+
+      #messages {
+        list-style: none;
+        padding: 0;
+        overflow-y: auto;
+        max-height: 80%;
+      }
+
+      #form {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        position: absolute;
+        width: 162vh;
+        top: 88%;
+      }
+
+      #input {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        border-radius: 20px;
+        background-color: #e6e6e6;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #0074d9;
+        color: #fff;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+      ul {
+        max-height: 520px;
+        overflow: auto;
+      }
+      li {
+        margin: 5px 0;
+        border-radius: 15px;
+        padding: 10px;
+        max-width: 70%;
+        width: auto;
+        background-color: #dcf8c6;
+        align-self: flex-start;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="video-grid"></div>
+      <div id="chat">
+        <ul id="messages">
+          <p id="rooms">
+            <b>Room Id: </b><span id="room-id-content"></span>
+            <button onclick="copycnt()">Copy</button>
+          </p>
+          <p id="Name"><b>Name:</b></p>
+        </ul>
+        <form id="form" action="">
+          <input id="input" autocomplete="off" /><button>Send</button>
+        </form>
+      </div>
+    </div>
+    <script>
+      function copycnt() {
+        var copyText = document.getElementById("room-id-content");
+        var textToCopy = copyText.textContent;
+        var tempTextArea = document.createElement("textarea");
+        tempTextArea.value = textToCopy;
+        document.body.appendChild(tempTextArea);
+        tempTextArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempTextArea);
+      }
+    </script>
+  </body>
+</html>

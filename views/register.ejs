@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <style>
+      /* Apply some basic styling to the whole page */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Style the sign-up form */
+      form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 300px;
+        margin: 0 auto;
+      }
+
+      /* Style form headings */
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      /* Style form inputs and button */
+      input[type="text"],
+      input[type="password"] {
+        width: 93%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #0074d9; /* Blue button color */
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+      }
+
+      /* Style the links in the home page */
+      li {
+        list-style: none;
+        margin: 10px 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: #0074d9; /* Blue link color */
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+      div {
+        text-align: center; /* Center-align the content horizontally */
+        margin: 20px 0; /* Add some space above and below the buttons */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Sign up form</h1>
+
+    <form action="/register" method="POST">
+      <input type="text" name="username" placeholder="username" />
+      <input type="password" name="password" placeholder="password" />
+      <button>Submit</button>
+    </form>
+    <div>
+      <li>If you are already registered then <a href="/login">Login</a></li>
+    </div>
+  </body>
+</html>
